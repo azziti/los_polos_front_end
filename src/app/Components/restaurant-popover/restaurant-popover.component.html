@@ -1,0 +1,31 @@
+<ion-item class="text-center" lines="none">
+  <div style="width: 100%">
+    <div style="width: 100%" class="ion-text-center username">
+      <ion-label *ngIf="this.data">{{ this.data.restaurant.nom }}</ion-label>
+    </div>
+    <div style="width: 100%" class="ion-text-center email">
+      <ion-label *ngIf="this.data">{{
+        this.data.restaurant.user.email
+      }}</ion-label>
+    </div>
+  </div>
+</ion-item>
+
+<ion-list class="ion-margin-top">
+  <ion-item (click)="logOut()" class="ion-text-center">
+    <ion-icon
+      class="ion-no-margin"
+      slot="start"
+      name="log-out-outline"
+    ></ion-icon>
+    <ion-label>Deconnexion</ion-label>
+  </ion-item>
+  <ion-item lines="none" (click)="close()" class="ion-text-center">
+    <ion-icon
+      class="ion-no-margin"
+      slot="start"
+      name="close-outline"
+    ></ion-icon>
+    <ion-label>Fermer</ion-label>
+  </ion-item>
+</ion-list>

@@ -1,0 +1,32 @@
+#icon-image {
+  margin-top: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 30vh;
+}
+
+ion-thumbnail {
+  height: 20vh;
+  width: auto;
+}
+
+ion-button {
+  width: 90%;
+  height: 45px;
+}
+ion-button.yellow {
+  width: 90%;
+  height: 50px;
+  margin-top: 10%;
+  --border-color: #000;
+  --border-radius: 20px;
+  --border-style: solid;
+  --border-width: 2px;
+}
+ion-button.black {
+  width: 90%;
+  height: 50px;
+  --border-radius: 20px;
+}

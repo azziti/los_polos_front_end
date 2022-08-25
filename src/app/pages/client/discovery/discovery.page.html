@@ -1,0 +1,69 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="text-center">
+    <ion-title class="ion-no-padding ion-padding-start ion-margin-start"
+      >Discovery</ion-title
+    >
+    <ion-button
+      class="popover-button ion-no-padding ion-text-center"
+      slot="end"
+      (click)="presentPopover($event)"
+    >
+      <ion-icon size="large" name="ellipsis-vertical-outline"></ion-icon>
+    </ion-button>
+    <!-- <div
+      class="popover-button ion-no-padding ion-text-center"
+      (click)="presentPopover($event)"
+      slot="end"
+      lines="none"
+    >
+      <img src="assets/user.svg" alt="photo de profile" />
+    </div> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row class="">
+      <ion-col size="6">
+        <ion-card [routerLink]="['nearby']" class="ion-no-margin">
+          <div>
+            <ion-img src="assets/nearby.png"></ion-img>
+          </div>
+          <div class="project-name">
+            <p class="ion-text-center">Nearby</p>
+          </div>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6">
+        <ion-card [routerLink]="['orders-history']" class="ion-no-margin">
+          <div>
+            <ion-img src="assets/shopping-bag.png"></ion-img>
+          </div>
+          <div class="project-name">
+            <p class="ion-text-center">Mes Commandes</p>
+          </div>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6">
+        <ion-card [routerLink]="['favorite-restaurants']" class="ion-no-margin">
+          <div>
+            <ion-img src="assets/food-tray.png"></ion-img>
+          </div>
+          <div class="project-name">
+            <p class="ion-text-center">Favoris</p>
+          </div>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6">
+        <ion-card [routerLink]="['client-support']" class="ion-no-margin">
+          <div>
+            <ion-img src="assets/customer-support.png"></ion-img>
+          </div>
+          <div class="project-name">
+            <p class="ion-text-center">Support</p>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

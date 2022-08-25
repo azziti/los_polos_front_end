@@ -1,0 +1,253 @@
+<!-- <ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-vertical">
+  <div id="icon-image">
+    <ion-thumbnail class="">
+      <ion-img src="./assets/undraw_healthy_options_sdo3.svg"></ion-img>
+    </ion-thumbnail>
+    <ion-label class="ion-margin-top">
+      <h2>Accedez a votre compte</h2>
+    </ion-label>
+  </div>
+  <ion-grid class="">
+    <ion-row class="ion-align-items-center ion-padding-horizontal">
+      <form>
+        <ion-item lines="full" class="ionic-margin-bottom">
+          <ion-label color="grey-text-color" position="floating"
+            >Email</ion-label
+          >
+          <ion-input
+            [(ngModel)]="loginData.email"
+            type="text"
+            id="email"
+            name="email"
+            required
+          ></ion-input>
+        </ion-item>
+
+        <ion-item lines="full" class="ionic-margin-bottom">
+          <ion-label color="grey-text-color" position="floating"
+            >Mot de passe</ion-label
+          >
+          <ion-input
+            [(ngModel)]="loginData.password"
+            type="password"
+            id="password"
+            name="password"
+            required
+          ></ion-input>
+        </ion-item>
+        <ion-row class="ion-padding-vertical">
+          <ion-col
+            style="display: flex; flex-direction: column"
+            class="ion-justify-content-center ion-align-items-center"
+          >
+            <ion-button
+              (click)="loginAction()"
+              class="ion-text-capitalize"
+              type="submit"
+              color="main-yellow"
+              expand="block"
+              shape="round"
+              strong="true"
+              >Connexion</ion-button
+            >
+            <ion-text class="ion-text-center">
+              <p class="ion-no-margin">vous n'avez pas un compte ?</p>
+              <a class="ion-no-margin" [routerLink]="['../register']"
+                >S'inscrire</a
+              >
+            </ion-text>
+          </ion-col>
+        </ion-row>
+      </form>
+    </ion-row>
+  </ion-grid>
+</ion-content> -->
+
+<!-- <ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-vertical">
+  <div id="icon-image">
+    <ion-thumbnail class="">
+      <ion-img src="./assets/undraw_healthy_options_sdo3.svg"></ion-img>
+    </ion-thumbnail>
+    <ion-label class="ion-margin-top">
+      <h2>Accedez a votre compte</h2>
+    </ion-label>
+  </div>
+  <ion-grid class="">
+    <ion-row class="ion-align-items-center ion-padding-horizontal">
+      <form [formGroup]="ionicForm" (ngSubmit)="submitForm()" novalidate>
+        <ion-item lines="full" class="ionic-margin-bottom">
+          <ion-label color="grey-text-color" position="floating"
+            >Email</ion-label
+          >
+          <ion-input
+            formControlName="email"
+            type="text"
+            id="email"
+            name="email"
+            required
+          ></ion-input>
+          <span
+            class="error"
+            *ngIf="isSubmitted && errorControl.email.errors?.required"
+          >
+            L'adresse email est obligatoire
+          </span>
+          <span
+            class="error"
+            *ngIf="isSubmitted && errorControl.email.errors?.pattern"
+          >
+            L'adresse email doit avoir une fromat valide
+          </span>
+        </ion-item>
+
+        <ion-item lines="full" class="ionic-margin-bottom">
+          <ion-label color="grey-text-color" position="floating"
+            >Mot de passe</ion-label
+          >
+          <ion-input
+            formControlName="password"
+            type="password"
+            id="password"
+            name="password"
+            required
+          ></ion-input>
+          <span
+            class="error"
+            *ngIf="isSubmitted && errorControl.password.errors?.required"
+          >
+            Le mot de pass est obligatoire
+          </span>
+        </ion-item>
+        <ion-row class="ion-padding-vertical">
+          <ion-col
+            style="display: flex; flex-direction: column"
+            class="ion-justify-content-center ion-align-items-center"
+          >
+            <ion-button
+              (click)="loginAction()"
+              class="ion-text-capitalize"
+              type="submit"
+              color="main-yellow"
+              expand="block"
+              shape="round"
+              strong="true"
+              >Connexion</ion-button
+            >
+            <ion-text class="ion-text-center">
+              <p class="ion-no-margin">vous n'avez pas un compte ?</p>
+              <a class="ion-no-margin" [routerLink]="['../register']"
+                >S'inscrire</a
+              >
+            </ion-text>
+          </ion-col>
+        </ion-row>
+      </form>
+    </ion-row>
+  </ion-grid>
+</ion-content> -->
+
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-vertical">
+  <div id="icon-image">
+    <ion-thumbnail class="">
+      <ion-img src="./assets/undraw_healthy_options_sdo3.svg"></ion-img>
+    </ion-thumbnail>
+    <ion-label class="ion-margin-top">
+      <h2>Accedez a votre compte</h2>
+    </ion-label>
+  </div>
+  <ion-grid class="">
+    <ion-row class="ion-align-items-center ion-padding-horizontal">
+      <form [formGroup]="ionicForm" (ngSubmit)="submitForm()" novalidate>
+        <ion-item lines="full" class="ionic-margin-bottom">
+          <ion-label color="grey-text-color" position="floating"
+            >Email</ion-label
+          >
+          <ion-input
+            formControlName="email"
+            type="text"
+            id="email"
+            name="email"
+          ></ion-input>
+          <span
+            class="error"
+            *ngIf="isSubmitted && errorControl.email.errors?.required"
+          >
+            L'adresse email est obligatoire
+          </span>
+          <span
+            class="error"
+            *ngIf="isSubmitted && errorControl.email.errors?.pattern"
+          >
+            L'adresse email doit avoir une fromat valide
+          </span>
+        </ion-item>
+
+        <ion-item lines="full" class="ionic-margin-bottom">
+          <ion-label color="grey-text-color" position="floating"
+            >Mot de passe</ion-label
+          >
+          <ion-input
+            formControlName="password"
+            type="password"
+            id="password"
+            name="password"
+            required
+          ></ion-input>
+          <span
+            class="error"
+            *ngIf="isSubmitted && errorControl.password.errors?.required"
+          >
+            Le mot de pass est obligatoire
+          </span>
+        </ion-item>
+        <ion-row class="ion-padding-vertical">
+          <ion-col
+            style="display: flex; flex-direction: column"
+            class="ion-justify-content-center ion-align-items-center"
+          >
+            <ion-button
+              (click)="loginAction()"
+              class="ion-text-capitalize"
+              type="submit"
+              color="main-yellow"
+              expand="block"
+              shape="round"
+              strong="true"
+              >Connexion</ion-button
+            >
+            <ion-text class="ion-text-center">
+              <p class="ion-no-margin">vous n'avez pas un compte ?</p>
+              <a class="ion-no-margin" [routerLink]="['../register']"
+                >S'inscrire</a
+              >
+            </ion-text>
+          </ion-col>
+        </ion-row>
+      </form>
+    </ion-row>
+  </ion-grid>
+</ion-content>

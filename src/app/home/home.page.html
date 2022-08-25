@@ -1,0 +1,54 @@
+<ion-content>
+  <div id="icon-image">
+    <ion-thumbnail class="ion-margin-bottom">
+      <ion-img src="./assets/undraw_welcome_re_h3d9.svg"></ion-img>
+    </ion-thumbnail>
+    <ion-label class="ion-margin-top">
+      <h2>Bienvenue sur Los Pollos</h2>
+    </ion-label>
+  </div>
+  <ion-grid>
+    <ion-row class="ion-align-items-center ion-padding-horizontal">
+      <ion-col
+        size="12"
+        style="display: flex"
+        class="ion-justify-content-center ion-align-items-center"
+      >
+        <ion-button
+          [routerLink]="['register']"
+          class="ion-text-capitalize yellow"
+          type="submit"
+          color="main-yellow"
+          expand="block"
+          shape="round"
+          strong="true"
+          >S'inscrire</ion-button
+        >
+      </ion-col>
+
+      <ion-col size="12">
+        <ion-item lines="none">
+          <ion-label class="ion-text-center">
+            Vous avez deja un compte ?
+          </ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col
+        size="12"
+        style="display: flex"
+        class="ion-justify-content-center ion-align-items-center"
+      >
+        <ion-button
+          [routerLink]="['login']"
+          class="ion-text-capitalize black"
+          type="submit"
+          color="dark-yellow"
+          expand="block"
+          shape="round"
+          strong="true"
+          >Se Connecter</ion-button
+        >
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,146 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/restaurant"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="plat" fullscreen="true">
+  <ion-slides class="" pager="true">
+    <ion-slide *ngFor="let image of plat.images; let i = index">
+      <ion-item lines="none">
+        <ion-img [src]="image.uri"></ion-img>
+      </ion-item>
+    </ion-slide>
+  </ion-slides>
+  <div class="details-content">
+    <header class="meal-name ion-margin-top">
+      <ion-item lines="none" class="ion-margin-horizontal">
+        <label
+          style="max-width: 80%"
+          class="ion-no-margin ion-text-center"
+          slot="start"
+          >{{ plat.nom }}</label
+        >
+        <div slot="end">
+          <ion-button
+            (click)="decrement()"
+            slot="start"
+            class="accompat-elt-btns"
+          >
+            -
+          </ion-button>
+          <span class="accompat-elt-qte ion-margin-horizontal"
+            >{{ this.qte }}</span
+          >
+          <ion-button
+            (click)="increment()"
+            slot="end"
+            class="accompat-elt-btns"
+          >
+            +
+          </ion-button>
+        </div>
+      </ion-item>
+    </header>
+    <ion-item class="description ion-padding" lines="none">
+      {{ plat.description }}
+    </ion-item>
+    <div class="accompat">
+      <header class="ion-text-start ion-margin-start">Accompagnants :</header>
+      <ion-list
+        class="ion-padding-vertical ion-padding-horizontal-sm"
+        *ngIf="plat.accompagnants.length !== 0"
+      >
+        <app-commande-accompagnement
+          *ngFor="let acc of plat.accompagnants; let i = index"
+          [accompagnement]="{
+            id : acc.id,
+            nom : acc.nom,
+            prix: acc.prix,
+            quantity: 0
+          }"
+          (accompagnementChange)="handleChanges($event)"
+        ></app-commande-accompagnement>
+      </ion-list>
+    </div>
+  </div>
+
+  <div *ngIf="isBuyClicked" class="ion-no-padding ion-margin-bottom form">
+    <form [formGroup]="ionicForm" novalidate (ngSubmit)="submitForm()">
+      <ion-item>
+        <ion-label color="grey-text-color" position="floating"
+          >Adresse</ion-label
+        >
+        <ion-input formControlName="adresse" type="text"> </ion-input>
+        <span
+          class="error"
+          *ngIf="isSubmitted && errorControl.adresse.errors?.required"
+        >
+          L'adresse est obligatoire
+        </span>
+      </ion-item>
+      <ion-item>
+        <ion-label color="grey-text-color" position="floating"
+          >Telephone</ion-label
+        >
+        <ion-input formControlName="phone" type="text"> </ion-input>
+        <span
+          class="error"
+          *ngIf="isSubmitted && errorControl.phone.errors?.required"
+        >
+          Le numero de telephone est obligatoire
+        </span>
+      </ion-item>
+      <ion-row class="ion-margin-vertical">
+        <ion-col
+          style="display: flex"
+          class="ion-justify-content-center ion-align-items-center"
+        >
+          <ion-button
+            class="ion-text-capitalize ion-no-margin submit"
+            type="submit"
+            color="main-yellow"
+            expand="block"
+            shape="round"
+            strong="true"
+            >Ajouter</ion-button
+          >
+        </ion-col>
+      </ion-row>
+    </form>
+  </div>
+
+  <ion-fab class="buy" vertical="bottom" slot="fixed">
+    <ion-button
+      (click)="toggleForm()"
+      *ngIf="isBuyClicked; else cancel"
+      expand="full"
+      shape="round"
+      color="main-yellow"
+    >
+      <label class="price ion-text-end"> Annuler</label>
+    </ion-button>
+    <ng-template #cancel>
+      <ion-button
+        (click)="toggleForm()"
+        expand="full"
+        shape="round"
+        color="main-yellow"
+      >
+        <label class="ion-text-start">Acheter</label>
+        <label class="price ion-text-end"> {{ this.total }} MAD </label>
+      </ion-button>
+    </ng-template>
+  </ion-fab>
+  <ion-fab class="heart" vertical="top" slot="fixed">
+    <ion-fab-button>
+      <ion-icon
+        [ngStyle]="{'color': (isLiked) ? 'red' : '#000'}"
+        [name]="isLiked?'heart':'heart-outline'"
+        (click)="toggle()"
+      ></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

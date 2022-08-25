@@ -1,0 +1,87 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="client"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-segment (ionChange)="segmentChanged($event)" value="restaurants">
+    <ion-segment-button value="restaurants">
+      <ion-label>les restaurants</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="clients">
+      <ion-label>les plats</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  <ion-list
+    class="ion-padding"
+    *ngIf="selectedSegment === 'restaurants' && this.likes"
+    select-on-focus
+  >
+    <!-- <ion-item
+      *ngFor="let restaurant of likes.restaurants; let i = index"
+      lines="none"
+      class="ion-no-padding"
+    >
+      <article class="list-item">
+        <img src="assets/restau.jpg" alt="" class="picture" />
+        <span class="name">Tasty</span>
+        <span class="value">5<span>X</span></span>
+      </article>
+    </ion-item> -->
+    <ion-item
+      *ngFor="let restaurant of likes.restaurants; let i = index"
+      (click)="navigateRestaurant(restaurant.liked.id)"
+      class="new ion-no-padding"
+      lines="none"
+    >
+      <ion-avatar style="width: 23vw; height: 23vw" class="ion-margin-end">
+        <img
+          *ngIf="restaurant.liked.images.length"
+          [src]="restaurant.liked.images[0].uri"
+          alt=""
+        />
+      </ion-avatar>
+      <ion-label>
+        <h3 class="name">{{ restaurant.liked.nom }}</h3>
+        <p class="info">8am to 6pm</p>
+        <p class="info ion-text-wrap">{{ restaurant.liked.adresse}}</p>
+        <p class="rate">
+          3.5
+          <ion-icon class="star-icon" name="star"></ion-icon>
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-list
+    class="ion-padding"
+    *ngIf="selectedSegment === 'clients' && this.likes"
+  >
+    <ion-item
+      *ngFor="let plat of likes.plats; let i = index"
+      (click)="navigatePlat(plat.liked.id)"
+      class="new ion-no-padding"
+      lines="none"
+    >
+      <ion-avatar style="width: 23vw; height: 23vw" class="ion-margin-end">
+        <img
+          *ngIf="plat.liked.images.length"
+          [src]="plat.liked.images[0].uri"
+          alt=""
+        />
+      </ion-avatar>
+      <ion-label>
+        <h3 class="name">{{ plat.liked.nom }}</h3>
+        <p class="info">{{ plat.liked.restaurant.nom}}</p>
+        <p class="price ion-text-wrap">{{ plat.liked.price}}Dhs</p>
+        <p class="rate">
+          3.5
+          <ion-icon class="star-icon" name="star"></ion-icon>
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

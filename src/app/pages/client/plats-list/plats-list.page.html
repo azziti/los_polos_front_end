@@ -1,0 +1,39 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons style="z-index: 100 ;" slot="start">
+      <ion-back-button defaultHref="restaurant"></ion-back-button>
+    </ion-buttons>
+    <ion-title
+      style="
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+      "
+      >{{ plats?plats.nom:'' }}</ion-title
+    >
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-vertical">
+  <ion-grid *ngIf="plats">
+    <ion-row class="">
+      <ion-col *ngFor="let plat of plats.plats; let i = index" size="6">
+        <ion-card
+          [routerLink]="['/client/single-plat',plat.id]"
+          class="ion-no-margin"
+        >
+          <ion-card-content class="ion-no-padding">
+            <ion-img [src]="plat.images[0].uri"> </ion-img>
+          </ion-card-content>
+          <ion-card-header class="ion-text-center ion-no-padding">
+            <ion-card-subtitle>{{ plat.nom }}</ion-card-subtitle>
+            <!-- <ion-card-title>Card Title</ion-card-title> -->
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

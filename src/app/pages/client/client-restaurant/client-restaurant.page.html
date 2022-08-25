@@ -1,0 +1,87 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/client"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="restaurant" [fullscreen]="true">
+  <ion-slides class="" pager="true">
+    <ion-slide *ngFor="let image of restaurant.images; let i = index">
+      <ion-item lines="none">
+        <ion-img [src]="image.uri"></ion-img>
+      </ion-item>
+    </ion-slide>
+    <!-- <ion-slide>
+      <ion-item lines="none">
+        <ion-img src="assets/pexels-pixabay-357756.jpg"></ion-img>
+      </ion-item>
+    </ion-slide>
+    <ion-slide>
+      <ion-item lines="none">
+        <ion-img src="assets/pexels-nadezhda-moryak-4409273.jpg"></ion-img>
+      </ion-item>
+    </ion-slide> -->
+  </ion-slides>
+  <div class="details-content">
+    <header class="meal-name ion-margin-top ion-margin-horizontal">
+      <h1 style="display: inline-block" slot="start" class="ion-no-margin">
+        {{ restaurant.nom }}
+      </h1>
+      <ion-icon
+        [ngStyle]="{'color': (isLiked) ? 'red' : '#000'}"
+        style="float: right"
+        slot="end"
+        [name]="isLiked?'heart':'heart-outline'"
+        size="large"
+        (click)="toggle()"
+      ></ion-icon>
+    </header>
+    <ion-item class="phone" lines="none">
+      <ion-label slot="start" color="grey-text-color"> Appeler </ion-label>
+      <ion-note color="grenn-text-color" slot="end"
+        >{{ restaurant.telephone }}</ion-note
+      >
+    </ion-item>
+    <ion-item class="email" lines="none">
+      <ion-label slot="start" color="grey-text-color"> Email </ion-label>
+      <ion-note color="grenn-text-color" slot="end"
+        >{{ restaurant.user.email }}</ion-note
+      >
+    </ion-item>
+    <!-- Getting and setting the state of the accordion group -->
+    <ion-accordion-group class="description">
+      <ion-accordion>
+        <ion-item slot="header">
+          <ion-label color="grey-text-color">Description</ion-label>
+        </ion-item>
+
+        <ion-item class="description" lines="none" slot="content">
+          {{ restaurant.description }}
+        </ion-item>
+      </ion-accordion>
+    </ion-accordion-group>
+    <ion-item class="adresse" lines="none">
+      <ion-label slot="start" color="grey-text-color"> Adresse </ion-label>
+      <ion-note
+        color="grenn-text-color"
+        class="text-center ion-no-margin"
+        slot="end"
+      >
+        {{ restaurant.adresse + ' ' + restaurant.ville }}
+      </ion-note>
+    </ion-item>
+  </div>
+</ion-content>
+<ion-fab vertical="bottom" slot="fixed">
+  <ion-button
+    *ngIf="restaurant"
+    [routerLink]="['/client/menu' , restaurant.id]"
+    expand="full"
+    shape="round"
+    color="main-yellow"
+  >
+    <label style="color: #000" class="ion-text-center">Voir menu</label>
+  </ion-button>
+</ion-fab>

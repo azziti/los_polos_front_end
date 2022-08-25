@@ -1,0 +1,48 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/restaurant"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="plat" fullscreen="true">
+  <ion-slides class="" pager="true">
+    <ion-slide *ngFor="let image of plat.images; let i = index">
+      <ion-item lines="none">
+        <ion-img [src]="image.uri"></ion-img>
+      </ion-item>
+    </ion-slide>
+  </ion-slides>
+  <div class="details-content">
+    <header class="meal-name ion-margin-top">
+      <h1 class="ion-no-margin ion-text-center">{{ plat.nom }}</h1>
+    </header>
+    <ion-item class="description ion-padding" lines="none">
+      {{ plat.description }}
+    </ion-item>
+    <div class="accompat">
+      <header class="ion-text-start ion-margin-start">prix :</header>
+      <ion-item lines="none" class="ion-padding-horizontal">
+        <label slot="start" style="font-weight: 600" class="ion-no-margin"
+          >{{ plat.price }} :
+        </label>
+      </ion-item>
+    </div>
+    <div class="accompat">
+      <header class="ion-text-start ion-margin-start">Accompagnants :</header>
+      <ion-list class="ion-padding" *ngIf="plat.accompagnants.length !== 0">
+        <ion-item
+          *ngFor="let acc of plat.accompagnants; let i = index"
+          lines="none"
+          class="ion-padding-horizontal accompat-elt"
+        >
+          <label slot="start" class="ion-no-margin accompat-elt-name"
+            >{{ acc.nom }} :
+          </label>
+          <span class="ion-no-margin price" slot="end">{{ acc.prix }}Dhs</span>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
+</ion-content>

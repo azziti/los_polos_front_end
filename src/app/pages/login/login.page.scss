@@ -1,0 +1,40 @@
+ion-header {
+  height: 10vh;
+}
+ion-content {
+  height: 90vh;
+}
+form {
+  width: 100%;
+}
+
+ion-item {
+  --padding-bottom: 10px;
+}
+
+#icon-image {
+  // margin-top: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 30vh;
+}
+ion-thumbnail {
+  height: 20vh;
+  width: auto;
+}
+
+ion-button {
+  width: 90%;
+  margin-top: 10%;
+  height: 50px;
+  --border-color: #000;
+  --border-radius: 20px;
+  --border-style: solid;
+  --border-width: 2px;
+}
+.error {
+  color: red;
+  font-size: 0.8rem;
+}

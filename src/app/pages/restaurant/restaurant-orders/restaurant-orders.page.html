@@ -1,0 +1,48 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons style="z-index: 100" slot="start">
+      <ion-back-button defaultHref="restaurant"></ion-back-button>
+    </ion-buttons>
+    <ion-title
+      style="
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+      "
+      >Commandes</ion-title
+    >
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="orders">
+  <ion-list class="ion-padding-vertical">
+    <ion-item
+      *ngFor="let order of orders; let i = index"
+      class="new ion-no-padding"
+      lines="none"
+      [routerLink]="['/restaurant/order-details',order.id]"
+    >
+      <ion-avatar style="width: 23vw; height: 23vw" class="ion-margin-end">
+        <img [src]="order.plat.images[0].uri" alt="" />
+      </ion-avatar>
+      <ion-label>
+        <h3 class="name">
+          {{ order.client.user.first_name+" "+order.client.user.last_name }}
+        </h3>
+        <p class="info">{{ order.plat.nom }}</p>
+        <p class="date ion-text-wrap">{{ order.date}}</p>
+        <p class="date ion-text-wrap">Tel :{{ order.telephone}}</p>
+      </ion-label>
+      <ion-label
+        style="align-self: flex-end"
+        slot="end"
+        class="ion-no-margin ion-margin-start total"
+      >
+        Total : {{ order.total }}Dhs
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

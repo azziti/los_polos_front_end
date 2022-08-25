@@ -1,0 +1,90 @@
+ion-content {
+  --background: var(--ion-color-light-grey-color);
+  height: 87vh;
+}
+ion-header {
+  height: 13vh;
+  display: flex;
+  align-items: center;
+  // .popover-button {
+  //   margin-right: 3px;
+  //   height: 7vh;
+  //   width: 7vh;
+  //   background-color: #000;
+  //   border-radius: 50%;
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  //   img {
+  //     width: 90%;
+  //     height: 90%;
+  //   }
+  // }
+  .popover-button {
+    margin-right: 3px;
+    background-color: #fff;
+    --background: #fff;
+    --box-shadow: 0;
+    ion-icon {
+      --color: #000;
+      color: #000;
+    }
+  }
+  ion-title {
+    font-size: 1.5rem;
+  }
+}
+
+ion-grid {
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+
+  ion-row {
+    // padding-top: calc((87vh - 150vw) / 2);
+    // padding-bottom: calc((87vh - 150vw) / 2);
+    // height: 100%;
+
+    ion-col {
+      padding: 3vw;
+      height: 50vw;
+
+      ion-card {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+        ion-img {
+          height: 80px;
+          margin-top: 15px;
+        }
+
+        p {
+          font-size: 0.9rem;
+          font-weight: bold;
+          color: #000;
+        }
+        .project-name {
+          margin-top: 2vh;
+        }
+
+        &:hover {
+          border: 3px solid var(--ion-color-main-yellow);
+          background-color: var(--ion-color-main-yellow);
+          // transform: translateY(-3vh);
+          -webkit-transform: scale(0.95) translateY(-3vh); /* Saf3.1+, Chrome */
+          -moz-transform: scale(0.95) translateY(-3vh); /* FF3.5+ */
+          -ms-transform: scale(0.95) translateY(-3vh); /* IE9 */
+          -o-transform: scale(0.95) translateY(-3vh); /* Opera 10.5+ */
+          transform: scale(0.95) translateY(-3vh);
+          box-shadow: 0 3vh 3vh rgb(173, 173, 173);
+          transition: all 0.6s;
+        }
+      }
+    }
+  }
+}

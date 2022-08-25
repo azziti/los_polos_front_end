@@ -1,0 +1,70 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title
+      class="ion-text-center ion-no-padding ion-padding-start ion-margin-start"
+      >Dashboard</ion-title
+    >
+    <ion-button
+      class="popover-button ion-no-padding ion-text-center"
+      slot="end"
+      (click)="presentPopover($event)"
+    >
+      <ion-icon size="large" name="ellipsis-vertical-outline"></ion-icon>
+    </ion-button>
+    <!-- <div
+      class="popover-button ion-no-padding ion-text-center"
+      (click)="presentPopover($event)"
+      slot="end"
+      lines="none"
+    >
+      <img src="assets/user.svg" alt="photo de profile" />
+    </div> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row class="">
+      <ion-col size="6">
+        <ion-card [routerLink]="['orders']" class="ion-no-margin">
+          <div>
+            <ion-img src="assets/to-do-list.png"></ion-img>
+          </div>
+          <div class="project-name">
+            <p class="ion-text-center">Les commandes</p>
+          </div>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6">
+        <ion-card [routerLink]="['menu']" class="ion-no-margin">
+          <div>
+            <ion-img src="assets/menu.png"></ion-img>
+          </div>
+          <div class="project-name">
+            <p class="ion-text-center">Menu</p>
+          </div>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6">
+        <ion-card [routerLink]="['statistics']" class="ion-no-margin">
+          <div>
+            <ion-img src="assets/bar-chart.png"></ion-img>
+          </div>
+          <div class="project-name">
+            <p class="ion-text-center">Statistiques</p>
+          </div>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6">
+        <ion-card [routerLink]="['restaurant-support']" class="ion-no-margin">
+          <div>
+            <ion-img src="assets/customer-support.png"></ion-img>
+          </div>
+          <div class="project-name">
+            <p class="ion-text-center">Support</p>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
